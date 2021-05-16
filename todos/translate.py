@@ -16,9 +16,9 @@ def translate(event, context):
         }
     )
     
+    
     client = boto3.client('translate', region_name='us-east-1')
-    #resultTranslate = client.translate_text(Text=result['Item.text'], SourceLanguageCode="auto", TargetLanguageCode=event['pathParameters']['language'])
-    resultTranslate = client.translate_text(Text="hola", SourceLanguageCode="auto", TargetLanguageCode=event['pathParameters']['language'])
+    resultTranslate = client.translate_text(Text=result['Item']['text'], SourceLanguageCode="auto", TargetLanguageCode=event['pathParameters']['language'])
     
     # create a response
     response = {
